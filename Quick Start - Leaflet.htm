@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+	/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+	crossorigin=""></script>
+ 
+	<script src="js/leaflet-providers.js"></script>
+
+    <style>
+      #issMap {
+        height: 750px;
+      }
+    </style>
+
+    <title>Fetch JSON from API and map lat lon</title>
+  </head>
+  <body>
+    <h1>FiddleMap</h1>
+
+
+
+    <div id="issMap"></div>
+
+    <script>
+      // Making a map and tiles
+      // Setting a higher initial zoom to make effect more obvious
+      const mymap = L.map('issMap').setView([36.906305,-80.321214] ,11);
+      const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      
+	  L.tileLayer.provider('Stamen.Terrain').addTo(mymap);
+
+    var marker = L.marker([36.906305,-80.321214]).addTo(mymap);
+
+    marker.bindPopup("<b>Andrew Small</b><br> Musician, homeowner, wearer of flat caps")
+
+    var controlLayers = L.control.layers( null, null, {
+    position: "topright",
+    collapsed: false
+    }).addTo(map);
+
+
+
+    </script>
+  </body>
+</html>
